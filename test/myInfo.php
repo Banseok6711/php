@@ -11,6 +11,12 @@
 <article>
     <?php
 
+      // session에 로그인 아뒤가 없으면 로그인 화면으로 이동시키기
+      if($_SESSION['userid'] == null){
+        header("Location: loginForm.php");
+        
+      }
+
       $servername ="localhost";
       $username="root";
       $password="1111";
