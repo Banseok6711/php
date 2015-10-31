@@ -2,8 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+      <!-- bootStrap link -->
       <link href="../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet">
       <link href="../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+      <!-- jQuery cnd link -->
+      <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      
     <title>Apple A/S Reservation System</title>
   </head>
   <body>
