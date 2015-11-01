@@ -18,12 +18,12 @@
 
     // Database connect
     $servername = "localhost";
-    $username = "root";
-    $password = "1111";
+    $dbusername = "root";
+    $dbpassword = "1111";
     $dbname = "appledb";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password,$dbname);
+    $conn = new mysqli($servername, $dbusername, $dbpassword,$dbname);
 
     // Check connection
     if ($conn->connect_error){
@@ -39,6 +39,9 @@
      }else{
        echo "<h3>Error insert user</h3>".$conn->error;
      }
+
+     //현재 로그인 상태에서 회원가입을 누른 것일 수 도 있기때문에 세션 아웃을 해준다
+     session_destroy();
 
 
 ?>

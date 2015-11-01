@@ -10,12 +10,12 @@
 <?php include 'template/navigation.php'; ?>
 <?php
   $servername = "localhost";
-  $username = "root";
-  $password = "1111";
+  $dbusername = "root";
+  $dbpassword = "1111";
   $dbname = "appledb";
 
   // Create connection
-  $conn =mysqli_connect($servername, $username, $password);
+  $conn =mysqli_connect($servername, $dbusername, $dbpassword);
   mysqli_select_db($conn , $dbname);
 
   // Check connection
@@ -24,17 +24,17 @@
   }
   echo "<h3>Connected successfully</h3>";
 
-  $email = mysql_real_escape_string($_POST['email']);
+  $userid = mysql_real_escape_string($_POST['userid']);
   $password = mysql_real_escape_string($_POST['password']);
 
-  $sql = "select * from users where email='".$email."' AND password='".$password."'";
+  $sql = "select * from users where userid='".$userid."' AND password='".$password."'";
   //  AND  password='".$_POST['password']."'";
 
   $result =mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   // var_dump($row);
   // echo "<br/>";
-  // echo "<h3>sql : ".$sql."</h3>";
+  // echo "<h3>sql : ".$sql."</h3>";s
 
 
   if($row != null){
@@ -46,6 +46,7 @@
      $_SESSION['userid']=$row['userid'];
    }else{
      echo "<h3>Error Login</h3>".$conn->error;
+       
    }
 ?>
 
