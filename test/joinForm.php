@@ -41,7 +41,7 @@
         <div class="col-sm-6">
           <div class="form-group">
               <input type="password" class="form-control" placeholder="password check" name="passwordCheck">
-              <div id="passwordCheck_check">not equal password</div>
+              <div id="passwordCheck_check"></div>
           </div>
         </div>
       </div>

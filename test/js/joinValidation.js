@@ -3,9 +3,25 @@
 
    //임의로 값을 주고 있음 , 유효성 체크 나중에 수정하기(aJax 사용해서)
    $("input[name='userid']").focusout(function(){
-
       //  $("#id_check").append("ID is duplicated").css("color","red");
-       $("#userid_check").addClass("vali_success");
+      $.ajax({
+          url:'http://192.168.0.29:8080/test/idcheck.php',
+          type: 'POST' ,
+          dataType:'json' ,
+          data :{'userid':$("input[name='userid']").val() },
+          success:function(result){
+            if(result['result']== true){ // 사용가능한 아이디일때
+                $("#userid_check").html(result['msg']).css("color","blue");
+                $("#userid_check").addClass("vali_success");
+            }else{
+              $("#userid_check").html(result['msg']).css("color","red");
+              $("#userid_check").removeClass("vali_success");
+            }
+
+          }
+      });
+
+      //  $("#userid_check").addClass("vali_success");
    });
    $("input[name='userid']").focusin(function(){
        $("#userid_check").empty();
