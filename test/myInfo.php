@@ -14,7 +14,7 @@
       // session에 로그인 아뒤가 없으면 로그인 화면으로 이동시키기
       if($_SESSION['userid'] == null){
         header("Location: loginForm.php");
-        
+
       }
 
       $servername ="localhost";
@@ -93,11 +93,16 @@
          <div class="col-sm-3">
          </div>
          <div class="col-sm-6">
-           <button type="button" class="btn btn-lg btn-success">Edit</button>
+           <button type="button" class="btn btn-lg btn-success" name="edit">Edit</button>
          </div>
        </div>
-
-
   </div>
 </article>
+
+<script type="text/javascript">
+  $("button[name='edit']").click(function(){
+    $(location).attr('href',"http://192.168.0.29:8080/test/editForm.php");
+  });
+</script>
+
 <?php include 'template/footer.php'; ?>

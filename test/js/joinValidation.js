@@ -38,6 +38,7 @@
 
    });
    $("input[name='password']").focusin(function(){
+     $("#password_check").removeClass("vali_success");
        $("#password_check").empty();
    });
 
@@ -53,6 +54,7 @@
    });
 
    $("input[name='passwordCheck']").focusin(function(){
+     $("#passwordCheck_check").removeClass("vali_success");
      $("#passwordCheck_check").empty();
    });
 
@@ -60,18 +62,20 @@
    //fullName regular patter check
    $("input[name='fullName']").focusout(function(){
      var fullNameValue = $("input[name='fullName']").val();
-     var namePattern = /[a-zA-Z]{3,8}$/;
+     var namePattern =/^[ㄱ-ㅎ|가-힣|a-z|A-Z|\*]+$/;
 
      //입력을 안했으면
      if( fullNameValue.lenght == 0 || !fullNameValue.match(namePattern)){
        $("#fullName_check").append("input correct fullName").css("color","red");
        $("#fullName_check").removeClass("vali_success");
      }else{
+
        $("#fullName_check").addClass("vali_success");
      }
    });
 
    $("input[name='fullName']").focusin(function(){
+     $("#fullName_check").removeClass("vali_success");
       $("#fullName_check").empty();
    });
 
@@ -88,6 +92,7 @@
      }
    });
    $("input[name='phone']").focusin(function(){
+      $("#phone_check").removeClass("vali_success");
      $("#phone_check").empty();
    });
 
@@ -101,6 +106,7 @@
      }
    });
    $("input[name='birth']").focusin(function(){
+     $("#birth_check").removeClass("vali_success");
      $("#birth_check").empty();
    });
 
@@ -125,6 +131,7 @@
    });
 
    $("input[name='email']").focusin(function(){
+     $("#birth_check").removeClass("vali_success");
      $("#email_check").empty();
    });
 

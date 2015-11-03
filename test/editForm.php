@@ -1,16 +1,44 @@
 <?php include 'template/header.php'; ?>
 <div class="jumbotron">
-  <h1> 회원가입</h1>
-  <p>간편하게 가입후 사이트를 이용하세요.</p>
+  <h1> User Info Edit</h1>
+  <p>You can edit your infomation about you.</p>
   <p>
     <!-- <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a> -->
   </p>
 </div>
 
-<?php include 'template/navigation.php'; ?>
+<?php include 'template/navigation.php';
+
+  $servername = "localhost";
+  $username = "root";
+  $password = "1111";
+  $dbname = "appledb";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password,$dbname);
+
+  // Check connection
+  if ($conn->connect_error){
+        die("Connection failed: ".$conn->connect_error);
+  }
+
+
+  $sql = "SELECT * from users where userid='".$_SESSION['userid']."'";
+
+  $result = mysqli_query($conn,$sql);
+  $row = mysqli_fetch_assoc($result);
+
+
+  // if($conn->query($sql) == TRUE){
+  //    echo "<h3>Table user created successfully</h3>";
+  //  }else{
+  //    echo "<h3>Error createing table</h3>".$conn->error;
+  //  }
+
+?>
 <article>
 
-  <form action="joinProcess.php" method="post" onsubmit="return vali();">
+  <form action="editProcess.php" method="post" onsubmit="return valiEdit();">
     <div class="col-sm-9">
       <div class="row">
         <div class="col-sm-3">
@@ -18,8 +46,8 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-              <input type="text" class="form-control" placeholder="ID" name="userid"  >
-              <div id="userid_check"></div>
+              <input type="text" class="form-control" value="<?php echo $row['userid']?>" name="userid" readonly="readonly">
+              <!-- <div id="userid_check"></div> -->
           </div>
         </div>
       </div>
@@ -29,7 +57,7 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-              <input type="password" class="form-control" placeholder="password" name="password">
+              <input type="password" class="form-control" value="<?php echo $row['password']?>" name="password" readonly="readonly">
               <div id="password_check"></div>
           </div>
         </div>
@@ -40,7 +68,7 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-              <input type="password" class="form-control" placeholder="password check" name="passwordCheck">
+              <input type="password" class="form-control"  name="passwordCheck">
               <div id="passwordCheck_check"></div>
           </div>
         </div>
@@ -51,7 +79,7 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="fullnName" name="fullName">
+            <input type="text" class="form-control" value="<?php echo $row['fullname']?>" name="fullName">
               <div id="fullName_check"></div>
         </div>
       </div>
@@ -62,7 +90,7 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="phone" name="phone">
+            <input type="text" class="form-control" value="<?php echo $row['phone']?>" name="phone">
             <div id="phone_check"></div>
         </div>
       </div>
@@ -73,7 +101,7 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="birth" name="birth">
+            <input type="text" class="form-control" value="<?php echo $row['birth']?>" name="birth">
             <div id="birth_check"></div>
         </div>
       </div>
@@ -84,7 +112,7 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="email" name="email">
+            <input type="text" class="form-control" value="<?php echo $row['email']?>" name="email">
                 <div id="email_check"></div>
         </div>
       </div>
@@ -93,7 +121,7 @@
       <div class="col-sm-3">
       </div>
       <div class="col-sm-6">
-        <button type="joinbtn" class="btn btn-lg btn-success" >Join</button>
+        <button type="joinbtn" class="btn btn-lg btn-success" >Edit success</button>
         <!-- <input type="submit" value="회원가입"></input> -->
         <!-- <button type="reset" class="btn btn-lg btn-danger">Reset</button> -->
       </div>
@@ -105,17 +133,26 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-      // 아이디 중복인지 Ajax로 체크해주기
+
+      //수정페이지에서 입력된 값들은 유효하기 때문에 처음에 vali_success 부여 해줘야한다.
+      $("#fullName_check").addClass("vali_success");
+      $("#phone_check").addClass("vali_success");
+      $("#birth_check").addClass("vali_success");
+      $("#email_check").addClass("vali_success");
+
       joinValidate();
 
   });
 
-  function vali(){
-    if($(".vali_success").size() == 7){
-      alert("vail_success = =7");
+  function valiEdit(){
+
+
+    if($(".vali_success").size() == 5){
+      alert("vail_success = =5");
 
     }else{
         alert("Check invalid Elements!!");
+        alert($(".vali_success").size());
         return false;
     }
 
