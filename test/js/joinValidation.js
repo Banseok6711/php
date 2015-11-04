@@ -131,7 +131,7 @@
    });
 
    $("input[name='email']").focusin(function(){
-     $("#birth_check").removeClass("vali_success");
+     $("#email_check").removeClass("vali_success");
      $("#email_check").empty();
    });
 

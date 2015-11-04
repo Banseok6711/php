@@ -116,6 +116,7 @@
 
     }else{
         alert("Check invalid Elements!!");
+        alert($(".vali_success").size());
         return false;
     }
 
