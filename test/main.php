@@ -30,6 +30,5 @@
           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
         </div>
       </div>
-  </div>
-  </body>
-</html>
+
+<?php include 'template/footer.php'; ?>
