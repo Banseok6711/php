@@ -35,8 +35,19 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#map">map</a></li>
+                <!-- <li><a href='http://192.168.0.29:8080/test/loginForm.php'>로그인</a></li> -->
                 <li><a href="http://192.168.0.29:8080/test/joinForm.php">회원가입</a></li>
-                <li><a href="http://192.168.0.29:8080/test/loginForm.php">로그인</a></li>
+
+                <?php
+                  if($_SESSION['userid'] == "admin"){
+                    echo "<li><a href='#'>관리자 접속중</a></li>" ;
+                  }else if($_SESSION['userid'] != null){
+                    echo "<li><a href='#'>".$_SESSION['userid']."님</a></li>";
+                  }else{
+                    echo "<li><a href='http://192.168.0.29:8080/test/loginForm.php'>로그인</a></li>";
+                  }
+                  ?>
+
               </ul>
             </div><!--/.nav-collapse -->
           </div>

@@ -16,15 +16,15 @@
     <script language="javascript" type="text/javascript" src="js/loginValidation.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-
+            loginValidation();
         });
 
         function vali(){
-          loginValidation();
+          // loginValidation();
 
           if($("#login_check").hasClass("vali_success")){
               alert("로그인 성공!");
-          }else{            
+          }else{
             return false;
           }
         }

@@ -5,6 +5,7 @@
   <p>
     <!-- <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a> -->
   </p>
+
 </div>
 
 <?php include 'template/navigation.php'; ?>
