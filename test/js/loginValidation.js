@@ -7,8 +7,15 @@ function loginValidation(){
   });
 
   $("input[name='userid']").focusout(function(){
-      $("#login_check").removeClass("vali_success");
-      check();
+      // alert($("input[name='password']").val());
+      if($("input[name='password']").val() == "" ){
+        $("#login_check").empty();
+        $("#login_check").removeClass("vali_success");
+      }else{
+          check();
+      }
+
+
   });
 
   $("input[name='password']").focusin(function(){
