@@ -6,6 +6,8 @@
       <link href="../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" rel="stylesheet">
       <link href="../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
 
+      <link href="http://getbootstrap.com/examples/sticky-footer/sticky-footer.css" rel="stylesheet">
+
       <!-- jQuery cnd link -->
       <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
