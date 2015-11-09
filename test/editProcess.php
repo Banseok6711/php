@@ -29,8 +29,15 @@
 
     if($conn->query($sql) == TRUE){
        echo "<h3>update user successfully</h3>";
-       $_SESSION['userid']=$userid;
-       header('Location: myInfo.php');
+
+       //관리자가 수정 or 이용자가 수정 햇는지 구분해줘야함
+       if($_SESSION['userid']=="admin"){
+         header('Location: http://192.168.0.29:8080/index.php/userlist/showlist');
+       }else{
+         $_SESSION['userid']=$userid;
+         header('Location: myInfo.php');
+       }
+
      }else{
        echo "<h3>Error insert user</h3>".$conn->error;
      }

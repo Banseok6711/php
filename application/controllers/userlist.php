@@ -25,5 +25,17 @@
       $this->load->view("footer");
     }
 
+    public function edit($id){
+      $this->load->database();
+      $this->load->model('user_model');
+      $user = $this->user_model->get($id);
+
+      $this->load->view("header");
+      $this->load->view("navigation");
+      $this->load->view("useredit",array('user'=>$user));
+      $this->load->view("footer");
+
+    }
+
   }
 ?>
