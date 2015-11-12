@@ -31,7 +31,7 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="http://192.168.0.29:8080/test/reservationForm.php">Reservation</a></li>
+                <li class="active"><a href="http://192.168.0.29:8080/index.php/reservation/form">Reservation</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#map">map</a></li>
