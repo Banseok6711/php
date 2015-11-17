@@ -8,7 +8,7 @@
         <input type="text"  class="form-control" placeholder="ID" name="userid">
         <div id="login_check"></div>
         <label for="inputPassword" class="sr-only" >Password</label>
-        <input type="text"  class="form-control" placeholder="Password" name="password">
+        <input type="password"  class="form-control" placeholder="Password" name="password">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
     </div>

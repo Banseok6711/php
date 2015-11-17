@@ -8,7 +8,9 @@
       </div>
       <div class="col-sm-5">
         <div class="form-group">
-            <?= $_POST['res_day'] ?>
+            <?=
+              $res_day
+            ?>
         </div>
       </div>
     </div>
@@ -20,15 +22,13 @@
       </div>
       <div class="col-sm-5">
         <div class="form-group">
-            <?= $_POST['res_time'] ?>
+          <?=
+            $res_time
+          ?>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
 
 </article>
 
